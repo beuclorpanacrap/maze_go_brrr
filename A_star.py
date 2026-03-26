@@ -5,7 +5,7 @@ import time
 import threading
 import webbrowser
 from flask import Flask, jsonify, request, render_template
-from random import shuffle, randint
+from random import shuffle
 
 barbie = Flask(__name__)
 
