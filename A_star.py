@@ -109,6 +109,10 @@ def a_star_search(grid, start, end):
 
     return []
 
+@barbie.route('/')
+def index():
+    return render_template('index.html')
+
 @barbie.route('/api/maze')
 def api_maze():
     grid = generate_maze(rows, columns)
