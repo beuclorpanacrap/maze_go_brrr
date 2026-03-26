@@ -1,6 +1,5 @@
 import random
 import heapq
-import sys
 import time
 import threading
 import webbrowser
@@ -109,12 +108,6 @@ def a_star_search(grid, start, end):
                 heapq.heappush(heap, (neighbor_total, neighbor_cost, neighbor_position))
 
     return []
-
-@barbie.route('/')
-def index():
-    import sys
-    version = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
-    return render_template('index.html', python_version=version)
 
 @barbie.route('/api/maze')
 def api_maze():
