@@ -27,6 +27,7 @@ async function solve_maze() {
     if (running || !current_grid) return;
     running = true;
     document.getElementById('button-solve').disabled = true;
+    reset_path();
     set_status('Girliepop is getting ready... 💕');
 
     const start_time = Date.now();
@@ -53,7 +54,7 @@ async function solve_maze() {
     clearInterval(timer);
     document.getElementById('val-time').textContent = ((Date.now() - start_time) / 1000).toFixed(2);
     running = false;
-    document.getElementById('button-solve').disabled = true;
+    document.getElementById('button-solve').disabled = false;
 }
 
 function draw_grid(grid) {
@@ -87,6 +88,15 @@ async function draw_path(path) {
            cell.className = `cell ${cssClass(path_type)}`;
         }
         await pause(10);
+    }
+}
+function reset_path() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            const cell = document.getElementById(`cell-${r}-${c}`);
+            if (!cell || cell.textContent === '👸' || cell.textContent === '👑') continue;
+            cell.className = `cell ${cssClass(current_grid[r][c])}`;
+        }
     }
 }
 
