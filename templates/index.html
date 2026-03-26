@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <title>Barbie Maze</title>
+</head>
+
+<body class="bg">
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div id="heart-grid"></div>
+    <div class="text-box">
+      <h1>🎀 Barbie Maze 🎀</h1>
+      <p id="loading-hint">✨ Loading the slay... click to enter ✨</p>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div id="app">
+
+    <header>
+      <center>
+        <div class="sub-top"><h3><b><i>✦ Welcome to ✦</i></b></h3></div>
+        <h1><b><i>Barbie Maze!</i></b></h1>
+        <div class="sub-bot"><h3>✨ She's iconic ✨</h3></div>
+      </center>
+    </header>
+
+    <div style="height: 20px;"></div>
+
+    <div class="panels">
+
+      <!-- LEFT PANEL -->
+      <div class="panel-left">
+        <div class="card status-card">
+          <div class="card-label">♡ Status ♡</div>
+          <div id="status-text">Ready to Slay! 💅</div>
+        </div>
+        <div class="card stat-card">
+          <div class="card-label">👑 Path Length</div>
+          <div class="stat-val" id="val-path">—</div>
+          <div class="stat-unit" id="unit-path"></div>
+        </div>
+        <div class="card stat-card">
+          <div class="card-label">⏱️ Time</div>
+          <div class="stat-val" id="val-time">—</div>
+          <div class="stat-unit">sec</div>
+        </div>
+      </div>
+
+      <!-- CENTER PANEL -->
+      <div class="panel-center">
+        <div class="maze-wrap">
+           <div class="bow"><img src="{{ url_for('static', filename='bow.png') }}" alt="bow"></div>
+          <div id="maze-grid"></div>
+        </div>
+        <div class="legend">
+          <div class="leg-item"><div class="leg-dot" style="background:#ff1493"></div><span class="leg-txt">👸 Start</span></div>
+          <div class="leg-item"><div class="leg-dot" style="background:#fff700"></div><span class="leg-txt">👑 End</span></div>
+          <div class="leg-item"><div class="leg-dot" style="background:#ff69b4"></div><span class="leg-txt">💖 Path</span></div>
+          <div class="leg-item"><div class="leg-dot" style="background:#a0006a"></div><span class="leg-txt">🧱 Wall</span></div>
+        </div>
+        <div class="btns">
+          <button id="button-solve" onclick="solve_maze()">✨ Find the Path! ✨</button>
+          <button id="button-new" onclick="new_maze()">🎀 New Maze!</button>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="panel-right">
+        <div class="card">
+          <div class="card-label">💄 Coverage</div>
+          <div class="bar-track"><div id="coverage-bar"></div></div>
+          <div id="coverage-precentage">0% slay!</div>
+        </div>
+        <div class="card">
+          <div class="card-label">🏠 Maze Stats</div>
+          <div class="specs-row"><span class="specs-key">Rows</span><span class="specs-val">23</span></div>
+          <div class="specs-row"><span class="specs-key">Columns</span><span class="specs-val">35</span></div>
+          <div class="specs-row"><span class="specs-key">Total</span><span class="specs-val">805 cells</span></div>
+        </div>
+        <div class="quote-card">"Iconic. Legendary. Barbie." 💅</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
